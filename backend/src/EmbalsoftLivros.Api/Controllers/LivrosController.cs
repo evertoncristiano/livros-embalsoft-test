@@ -76,6 +76,19 @@ namespace EmbalsoftLivros.Api.Controllers
             return CustomResponse(HttpStatusCode.NoContent);
         }
 
+        [HttpDelete("{id:guid}")]
+        public async Task<ActionResult<LivroDTO>> Excluir(Guid id)
+        {
+            var livro = await ObterLivro(id);
+
+            if (livro == null) 
+                return NotFound();
+
+            await _livroService.Remover(id);
+
+            return CustomResponse(HttpStatusCode.NoContent);
+        }
+
         private async Task<LivroDTO> ObterLivro(Guid id)
         {
             return _mapper.Map<LivroDTO>(await _livroRepository.ObterPorId(id));

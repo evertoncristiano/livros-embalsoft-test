@@ -1,9 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-
 import { Observable } from "rxjs";
 import { Livro } from "../models/livro";
-
 import { environment } from "../../../environments/environment";
 
 @Injectable()
@@ -15,9 +13,9 @@ export class LivroService {
     obterTodos(): Observable<Livro[]> {
         return this.http.get<Livro[]>(this.urlV1);
     }
-    
+
     obterPorId(id: string): Observable<Livro> {
-        return this.http.get<Livro>(this.urlV1+id);
+        return this.http.get<Livro>(this.urlV1 + id);
     }
 
     novo(livro: Livro): Observable<Livro> {
@@ -26,5 +24,9 @@ export class LivroService {
 
     atualizar(livro: Livro): Observable<Livro> {
         return this.http.put<Livro>(this.urlV1 + livro.id, livro);
+    }
+
+    excluir(id: string): Observable<Livro> {
+        return this.http.delete<Livro>(this.urlV1 + id);
     }
 }

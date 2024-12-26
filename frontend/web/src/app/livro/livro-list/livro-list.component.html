@@ -27,7 +27,7 @@
                     <a class="btn btn-info" [routerLink]="['/livros/editar', livro.id]">
                         Editar
                     </a>&nbsp;
-                    <a class="btn btn-danger" [routerLink]="['/livros/excluir', livro.id]">
+                    <a class="btn btn-danger" (click)="excluir(livro.id)">
                         Excluir
                     </a>
                 </td>

@@ -32,7 +32,7 @@ namespace EmbalsoftLivros.Core.Services
 
         public async Task Remover(Guid id)
         {
-            throw new NotImplementedException();
+            await _livroRepository.Remover(id);
         }
 
         public void Dispose()
