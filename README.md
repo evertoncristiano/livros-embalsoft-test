@@ -2,6 +2,10 @@
 
 Este projeto foi realizado como teste para avaliação técnica para o cargo de desenvolvedor fullstack na Embalsoft. O objetivo era criar um CRUD básico de livros tanto no back-end quanto no front-end.
 
+## Tecnologias
+- .NET 8
+- Angular 18
+
 ## Backend
 ##### No Visual Studio
 1. Abra a solução `backend\EmbalsoftLivros.sln` no Visual Studio;
