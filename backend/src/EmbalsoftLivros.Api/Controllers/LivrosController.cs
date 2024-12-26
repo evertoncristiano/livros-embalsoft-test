@@ -33,7 +33,7 @@ namespace EmbalsoftLivros.Api.Controllers
         [HttpGet("{id:guid}")]
         public async Task<ActionResult<LivroDTO>> ObterPorId(Guid id)
         {
-            var livroDto = _mapper.Map<LivroDTO>(await _livroRepository.ObterPorId(id));
+            var livroDto = await ObterLivro(id);
 
             if (livroDto == null) 
                 return NotFound();
@@ -50,6 +50,35 @@ namespace EmbalsoftLivros.Api.Controllers
             await _livroService.Adicionar(_mapper.Map<Livro>(livroDTO));
 
             return CustomResponse(HttpStatusCode.Created, livroDTO);
+        }
+
+        [HttpPut("{id:guid}")]
+        public async Task<IActionResult> Atualizar(Guid id, LivroDTO livroDTO)
+        {
+            if (id != livroDTO.Id)
+            {
+                NotificarErro("Os ids informados não são iguais!");
+                return CustomResponse();
+            }
+
+            if (!ModelState.IsValid) 
+                return CustomResponse(ModelState);
+
+            var livroDb = await ObterLivro(id);
+
+            livroDb.Titulo = livroDTO.Titulo;
+            livroDb.Autor = livroDTO.Autor;
+            livroDb.Genero = livroDTO.Genero;
+            livroDb.Ano = livroDTO.Ano;
+
+            await _livroService.Atualizar(_mapper.Map<Livro>(livroDb));
+
+            return CustomResponse(HttpStatusCode.NoContent);
+        }
+
+        private async Task<LivroDTO> ObterLivro(Guid id)
+        {
+            return _mapper.Map<LivroDTO>(await _livroRepository.ObterPorId(id));
         }
     }
 }

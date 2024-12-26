@@ -24,7 +24,10 @@ namespace EmbalsoftLivros.Core.Services
 
         public async Task Atualizar(Livro livro)
         {
-            throw new NotImplementedException();
+            if (!ExecutarValidacao(new LivroValidation(), livro)) 
+                return;
+
+            await _livroRepository.Atualizar(livro);
         }
 
         public async Task Remover(Guid id)

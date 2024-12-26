@@ -59,21 +59,38 @@ export class LivroFormComponent implements OnInit {
     salvar() {
         if (this.livroForm.dirty && this.livroForm.valid) {
             this.spinner.show();
-
             this.livro = Object.assign({}, this.livro, this.livroForm.value);
             
-            this.livroService.novo(this.livro).subscribe({
-                next: (r) => {
-                    this.spinner.hide()
-                    this.toastr.success('Livro salvo com sucesso!', 'Sucesso!')
-                    this.router.navigateByUrl("livros");
-                },
-                error: (e) => {
-                    this.spinner.hide()
-                    this.toastr.error('Não foi possível salvar o livro!', 'Ocorreu um erro!');
-                    console.log(e);
-                }
-            });
+            if(this.livro.id != null)
+                this.atualizarLivro(this.livro)
+            else
+                this.novoLivro(this.livro);
         }
+    }
+
+    novoLivro(livro: Livro) {
+        this.livroService.novo(livro).subscribe({
+            next: (r: any) => this.processarSucesso(r),
+            error: (e: any) => this.processarErro(e)
+        });
+    }
+
+    atualizarLivro(livro: Livro) {
+        this.livroService.atualizar(livro).subscribe({
+            next: (r: any) => this.processarSucesso(r),
+            error: (e: any) => this.processarErro(e)
+        });
+    }
+
+    processarSucesso(result: any) {
+        this.spinner.hide()
+        this.toastr.success('Livro salvo com sucesso!', 'Sucesso!')
+        this.router.navigateByUrl("livros");
+    }
+
+    processarErro(error: any) {
+        this.spinner.hide()
+        this.toastr.error('Não foi possível salvar o livro!', 'Ocorreu um erro!');
+        console.log(error);
     }
 }

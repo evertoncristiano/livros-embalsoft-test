@@ -23,4 +23,8 @@ export class LivroService {
     novo(livro: Livro): Observable<Livro> {
         return this.http.post<Livro>(this.urlV1, livro);
     }
+
+    atualizar(livro: Livro): Observable<Livro> {
+        return this.http.put<Livro>(this.urlV1 + livro.id, livro);
+    }
 }
