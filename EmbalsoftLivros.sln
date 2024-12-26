@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmbalsoftLivros.Api", "src\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmbalsoftLivros.Infra", "src\EmbalsoftLivros.Infra\EmbalsoftLivros.Infra.csproj", "{0E45594C-D5C4-4081-AE13-9A6363028C3B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmbalsoftLivros.Core", "EmbalsoftLivros.Core\EmbalsoftLivros.Core.csproj", "{979CA8FE-5298-4DC7-A4A1-E905D160B51F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmbalsoftLivros.Core", "src\EmbalsoftLivros.Core\EmbalsoftLivros.Core.csproj", "{07B084BD-81EA-45BE-AE86-D3633E19D403}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{0E45594C-D5C4-4081-AE13-9A6363028C3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0E45594C-D5C4-4081-AE13-9A6363028C3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0E45594C-D5C4-4081-AE13-9A6363028C3B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{979CA8FE-5298-4DC7-A4A1-E905D160B51F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{979CA8FE-5298-4DC7-A4A1-E905D160B51F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{979CA8FE-5298-4DC7-A4A1-E905D160B51F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{979CA8FE-5298-4DC7-A4A1-E905D160B51F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07B084BD-81EA-45BE-AE86-D3633E19D403}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07B084BD-81EA-45BE-AE86-D3633E19D403}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07B084BD-81EA-45BE-AE86-D3633E19D403}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07B084BD-81EA-45BE-AE86-D3633E19D403}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

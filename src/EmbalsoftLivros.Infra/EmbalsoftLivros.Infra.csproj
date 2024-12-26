@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\EmbalsoftLivros.Core\EmbalsoftLivros.Core.csproj" />
+    <ProjectReference Include="..\EmbalsoftLivros.Core\EmbalsoftLivros.Core.csproj" />
   </ItemGroup>
 
 </Project>
