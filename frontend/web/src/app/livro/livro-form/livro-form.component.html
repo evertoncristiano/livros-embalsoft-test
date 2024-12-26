@@ -36,7 +36,7 @@
                 <br>
                 <div class="form-group">
                     <input type="submit" [disabled]="!livroForm.valid" value="Salvar" class="btn btn-success">&nbsp;
-                    <a class="btn btn-danger" href="/livros">Voltar</a>
+                    <button class="btn btn-danger" [routerLink]="['/livros']">Voltar</button>
                 </div>
             </form>
         </div>

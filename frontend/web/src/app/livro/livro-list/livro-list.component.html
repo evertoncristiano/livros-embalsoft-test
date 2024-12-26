@@ -1,2 +1,37 @@
-<p>livro-list works!</p>
-<a class="btn btn-primary" href="/livros/novo">Novo</a>
+<div class="container main-container">
+    <h1>Lista de Livros</h1>
+    <hr>
+
+    <p>
+        <a class="btn btn-primary" [routerLink]="['/livros/novo']">Novo Livro</a>
+    </p>
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Ano</th>
+                <th>Titulo</th>
+                <th>Autor</th>
+                <th>Gênero</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let livro of livros">
+                <td>{{ livro.ano }}</td>
+                <td>{{ livro.titulo }}</td>
+                <td>{{ livro.autor }}</td>
+                <td>{{ livro.genero }}</td>
+
+                <td class="text-right">
+                    <a class="btn btn-info" [routerLink]="['/livros/editar', livro.id]">
+                        Editar
+                    </a>&nbsp;
+                    <a class="btn btn-danger" [routerLink]="['/livros/excluir', livro.id]">
+                        Excluir
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
