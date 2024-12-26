@@ -12,13 +12,33 @@ namespace EmbalsoftLivros.Api.Controllers
     {
         private readonly IMapper _mapper;
         private readonly ILivroService _livroService;
+        private readonly ILivroRepository _livroRepository;
 
         public LivrosController(INotificador _notificador, 
                                 IMapper mapper, 
-                                ILivroService livroService) : base(_notificador)
+                                ILivroService livroService,
+                                ILivroRepository livroRepository) : base(_notificador)
         {
             _mapper = mapper;
             _livroService = livroService;
+            _livroRepository = livroRepository;
+        }
+
+        [HttpGet]
+        public async Task<IEnumerable<LivroDTO>> ObterTodos()
+        {
+            return _mapper.Map<IEnumerable<LivroDTO>>(await _livroRepository.ObterTodos());
+        }
+
+        [HttpGet("{id:guid}")]
+        public async Task<ActionResult<LivroDTO>> ObterPorId(Guid id)
+        {
+            var livroDto = _mapper.Map<LivroDTO>(await _livroRepository.ObterPorId(id));
+
+            if (livroDto == null) 
+                return NotFound();
+
+            return livroDto;
         }
 
         [HttpPost]
