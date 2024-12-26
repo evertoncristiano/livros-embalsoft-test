@@ -3,9 +3,10 @@ import { AppComponent } from "./app.component";
 import { AppRoutingModule } from "./app-routing.module";
 import { BrowserModule } from "@angular/platform-browser";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { HttpClientModule, provideHttpClient, withInterceptorsFromDi } from "@angular/common/http";
+import { provideHttpClient, withInterceptorsFromDi } from "@angular/common/http";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { ToastrModule } from "ngx-toastr";
+import { NgxSpinnerModule } from "ngx-spinner";
 
 @NgModule({
     declarations: [
@@ -17,6 +18,7 @@ import { ToastrModule } from "ngx-toastr";
         NgbModule,
         BrowserAnimationsModule,
         ToastrModule.forRoot(),
+        NgxSpinnerModule.forRoot({ type: 'ball-scale-multiple' })
     ],
     providers: [
         provideHttpClient(withInterceptorsFromDi())
