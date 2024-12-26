@@ -1,1 +1,44 @@
-<p>livro-form works!</p>
+<div class="container main-container">
+    <h3>{{ title }}</h3>
+
+    <hr>
+    <div class="row">
+        <div class="col-md-10">
+            <form (ngSubmit)="salvar()" [formGroup]="livroForm">
+                <div class="form-group">
+                    <label class="control-label">Título</label>
+                    <div>
+                        <input class="form-control" id="titulo" type="text" placeholder="Título (requerido)" formControlName="titulo" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label">Autor</label>
+                    <div>
+                        <input class="form-control" id="autor" type="text" placeholder="Autor (requerido)" formControlName="autor" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label">Gênero</label>
+                    <div>
+                        <input class="form-control" id="genero" type="text" placeholder="Gênero (requerido)" formControlName="genero" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label">Ano</label>
+                    <div>
+                        <input class="form-control" id="ano" type="text" placeholder="Ano (requerido)" formControlName="ano" />
+                    </div>
+                </div>
+
+                <br>
+                <div class="form-group">
+                    <input type="submit" [disabled]="!livroForm.valid" value="Salvar" class="btn btn-success">&nbsp;
+                    <a class="btn btn-danger" href="/livros">Voltar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

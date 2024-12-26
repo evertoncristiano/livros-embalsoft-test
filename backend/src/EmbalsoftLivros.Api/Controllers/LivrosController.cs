@@ -7,7 +7,7 @@ using System.Net;
 
 namespace EmbalsoftLivros.Api.Controllers
 {
-    [Route("/api/v1/[controller]")]
+    [Route("/api/v1/livros")]
     public class LivrosController : MainController
     {
         private readonly IMapper _mapper;
