@@ -1,19 +1,24 @@
 ﻿using EmbalsoftLivros.Core.Contracts;
 using EmbalsoftLivros.Core.Entities;
+using EmbalsoftLivros.Core.Entities.Validations;
 
 namespace EmbalsoftLivros.Core.Services
 {
-    public class LivroService : ILivroService
+    public class LivroService : BaseService, ILivroService
     {
         private readonly ILivroRepository _livroRepository;
 
-        public LivroService(ILivroRepository livroRepository)
+        public LivroService(INotificador notificador,
+                            ILivroRepository livroRepository): base(notificador)
         {
             _livroRepository = livroRepository;
         }
 
         public async Task Adicionar(Livro livro)
         {
+            if (!ExecutarValidacao(new LivroValidation(), livro)) 
+                return;
+
             await _livroRepository.Adicionar(livro);
         }
 
@@ -29,7 +34,7 @@ namespace EmbalsoftLivros.Core.Services
 
         public void Dispose()
         {
-
+            _livroRepository?.Dispose();
         }
     }
 }
